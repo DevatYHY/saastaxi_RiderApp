@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">478471738709-ujjlcn6oan12uj873svnthnsehcs9log.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">478471738709</string>
+    <string name="google_api_key" translatable="false">AIzaSyCOgbUkHnHCmwKQkyQ1X85xv-d7ZJ3dZuI</string>
+    <string name="google_app_id" translatable="false">1:478471738709:android:b7a6b15ef8048b8f93cbdc</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCOgbUkHnHCmwKQkyQ1X85xv-d7ZJ3dZuI</string>
+    <string name="google_storage_bucket" translatable="false">saastaxis.appspot.com</string>
+    <string name="project_id" translatable="false">saastaxis</string>
+</resources>

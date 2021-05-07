@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "478471738709",
+    "project_id": "saastaxis",
+    "storage_bucket": "saastaxis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478471738709:android:b7a6b15ef8048b8f93cbdc",
+        "android_client_info": {
+          "package_name": "com.example.newmap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "478471738709-ujjlcn6oan12uj873svnthnsehcs9log.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOgbUkHnHCmwKQkyQ1X85xv-d7ZJ3dZuI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "478471738709-ujjlcn6oan12uj873svnthnsehcs9log.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

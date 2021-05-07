@@ -1,0 +1,4 @@
+#Fri May 07 03:44:11 GMT-03:00 2021
+base.0=E\:\\works\\newmap\\newmap\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
