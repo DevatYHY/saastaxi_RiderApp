@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CollectFareDialog extends StatelessWidget {
   final String paymentMethod;
@@ -24,7 +25,7 @@ class CollectFareDialog extends StatelessWidget {
             SizedBox(
               height: 22.0,
             ),
-            Text("Trip Fare"),
+            Text( AppLocalizations.of(context).tripfare,),
             SizedBox(
               height: 22.0,
             ),
@@ -39,7 +40,7 @@ class CollectFareDialog extends StatelessWidget {
               "\$$fareAmount",
               style: TextStyle(
                 fontSize: 55.0,
-                fontFamily: "Brand-Bold",
+                fontFamily: "segoebold",
               ),
             ),
             SizedBox(
@@ -48,7 +49,7 @@ class CollectFareDialog extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: Text(
-                "This is the total amount, it has been charged to the rider",
+               AppLocalizations.of(context).thetotalamount,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -57,17 +58,20 @@ class CollectFareDialog extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: RaisedButton(
+              child: ElevatedButton(
                 onPressed: () async {
                   Navigator.pop(context,"close");
 
                 },
-                color: Colors.deepPurpleAccent,
+                 style: ElevatedButton.styleFrom(
+                primary:  Colors.deepPurpleAccent,
+              ),
+                
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Pay Cash",
+                    AppLocalizations.of(context).paycash,
                       style: TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,

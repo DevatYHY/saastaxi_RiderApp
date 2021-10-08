@@ -1,0 +1,221 @@
+{
+    "helloWorld": "Hello World!",
+    "@helloWorld": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "history": "History",
+    "@history": {
+      "description": "The conventional newborn programmer greeting"
+    },
+      "profile": "Profile",
+    "@pofile": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "about": "About",
+    "@about": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "settings": "Settings",
+    "@settings": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "logout": "LogOut",
+    "@logout": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "searchdropoff": "Search Drop Off",
+    "@searchdropoff": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "currentlocation": "Current Location",
+    "@currentlocation": {
+      "description": "The conventional newborn programmer greeting"
+    },
+     "choosetype": "Choose Type",
+    "@choosetype": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "bike": "Bike",
+    "@bike": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "min": "min",
+    "@min": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "tuktuk": "Tuktuk",
+    "@tuktuk": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "requstin": "Requsting a Ride ",
+    "@requstin": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "pleasewait": "Please wait...",
+    "@pleasewait": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "findingadriver": "Finding a Driver",
+    "@findingadriver": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "cancelride": "Cancel Ride",
+    "@cancelride": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "calldriver": "Call Driver",
+    "@calldriver": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "cdropoffloc": "Confirm DropOFF Location",
+    "@cdropoffloc": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "from": "From",
+    "@from": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "to": "To",
+    "@to": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "email": "Email",
+    "@email": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "password": "Password",
+    "@password": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "confirmpassword": "Confirm Password",
+    "@confirmpassword": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "login": "Login",
+    "@login": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "notaccount": "Do not have an Account ?",
+    "@notaccount": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "registerhere": "Register Here",
+    "@registerhere": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "phonenumbere": "Phone number",
+    "@phonenumbere": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "edit": "Edit",
+    "@edit": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "name": "Name",
+    "@name": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "save": "Save",
+    "@save": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "ratedriver": "Rate this Driver",
+    "@ratedriver": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "submit": "Submit",
+    "@submit": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "createaccount": "Create Account",
+    "@createaccount": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "haveanaccount": " Allready have an Account ?",
+    "@haveanaccount": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "searchforplace": "Search for Place",
+    "@searchforplace": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "pickuplocation": "PickUp Location",
+    "@pickuplocation": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "whereto": "Where to ?",
+    "@whereto": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "setdropoffonmap": "Set Drop Off on Map",
+    "@setdropoffonmap": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "language": "Language",
+    "@language": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "signup": "Sign Up",
+    "@signup": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "tripfare": "Trip Fare",
+    "@tripfare": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "thetotalamount": "This is the total amount, it has been charged to the rider",
+    "@thetotalamount": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "paycash": "Pay Cash",
+    "@paycash": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "nodriverfound": "No driver found",
+    "@nodriverfound": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "noavailabledriverfound": "No available driver found in the nearby, we suggest you try again shortly",
+    "@noavailabledriverfound": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "close": "Close",
+    "@close": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "verifyyournumber":"Verify Your Number",
+    "@verifyyournumber" :{
+      "description": "The conventional newborn programmer greeting"
+    },
+    "pleaseenteryourmobile":"please enter your mobile number to receive OTP code",
+    "@pleaseenteryourmobile" :{
+      "description": "The conventional newborn programmer greeting"
+    },
+    "send":"Send",
+    "@send" :{
+      "description": "The conventional newborn programmer greeting"
+    },
+    "resend":"Resend the Code",
+    "@resend" :{
+      "description": "The conventional newborn programmer greeting"
+    },
+    "typeverification":"Pleas verify your numbere type the verification code",
+    "@typeverification" :{
+      "description": "The conventional newborn programmer greeting"
+    } ,
+    "verificationcode":"Verification code ",
+    "@verificationcode" :{
+      "description": "The conventional newborn programmer greeting"
+    } ,
+    "confirm":" Confirm",
+    "@confirm" :{
+      "description": "The conventional newborn programmer greeting"
+    } 
+
+
+    
+   
+    
+    
+
+}

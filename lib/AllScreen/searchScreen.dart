@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:newmap/AllScreen/mainscreen.dart';
 import 'package:newmap/AllWidgets/Divider.dart';
 import 'package:newmap/AllWidgets/progressDialog.dart';
 import 'package:newmap/Assistants/requsestAssistant.dart';
@@ -7,6 +9,7 @@ import 'package:newmap/Models/address.dart';
 import 'package:newmap/Models/placePrediction.dart';
 import 'package:newmap/configMap.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -17,16 +20,21 @@ class _SearchScreenState extends State<SearchScreen> {
   TextEditingController pickUpTextEditingController = TextEditingController();
   TextEditingController dropOfTextEditingController = TextEditingController();
   List<Properties> placePredictionsList = [];
+  bool x = false;
 
   @override
   Widget build(BuildContext context) {
-    String placeAddress;
-    if (Provider.of<AppData>(context).pickUpLocation.placeName != null) {
-      placeAddress = Provider.of<AppData>(context).pickUpLocation.placeName;
-    } else {
-      placeAddress = "";
+    String placeAddress = "";
+    try {
+      if (Provider.of<AppData>(context, listen: false).pickUpLocation.placeName != null) {
+        placeAddress = Provider.of<AppData>(context, listen: false).pickUpLocation.placeName;
+      } else {
+        placeAddress = "";
+      }
+    } catch (error) {
+      print(error.runtimeType.toString());
     }
-   
+
     pickUpTextEditingController.text = placeAddress;
 
     return SafeArea(
@@ -35,8 +43,8 @@ class _SearchScreenState extends State<SearchScreen> {
         body: Column(
           children: [
             Container(
-              height: 202.0,
-              decoration: BoxDecoration(color: backgroundcolor, boxShadow: [
+              height: 270.0,
+              decoration: BoxDecoration(color: textcolor, boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.4),
                   blurRadius: 6.0,
@@ -55,16 +63,21 @@ class _SearchScreenState extends State<SearchScreen> {
                     Stack(
                       children: [
                         GestureDetector(
-                          child: Icon(Icons.arrow_back,color: primary,),
+                          child: Icon(
+                            Icons.arrow_back,
+                            color: primary,
+                          ),
                           onTap: () {
                             Navigator.pop(context);
                           },
                         ),
                         Center(
                           child: Text(
-                            "Search for Place",
-                            style:
-                                TextStyle(fontSize: 18, fontFamily: "Brand Bold",color: textcolor),
+                            AppLocalizations.of(context).searchforplace,
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontFamily: "segoebold",
+                                color: primary),
                           ),
                         ),
                       ],
@@ -75,7 +88,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     Row(
                       children: [
                         Image.asset(
-                          "images/pickicon.png",
+                          "images/locationyellow.png",
                           height: 16.0,
                           width: 16.0,
                         ),
@@ -85,17 +98,19 @@ class _SearchScreenState extends State<SearchScreen> {
                         Expanded(
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Colors.grey[400],
-                              borderRadius: BorderRadius.circular(5.0),
+                              color: bordercolor,
+                              borderRadius: BorderRadius.circular(20.0),
                             ),
                             child: Padding(
                               padding: EdgeInsets.all(6.0),
                               child: TextField(
+                                style: TextStyle(
+                                    fontFamily: "segoe", color: textcolor),
+                                readOnly: true,
                                 controller: pickUpTextEditingController,
                                 decoration: InputDecoration(
-                                  hintText: "PickUp Location",
-                                 
-                                  fillColor: Colors.grey[400],
+                                  hintText:  AppLocalizations.of(context).pickuplocation,
+                                  fillColor: bordercolor,
                                   filled: true,
                                   border: InputBorder.none,
                                   isDense: true,
@@ -114,7 +129,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     Row(
                       children: [
                         Image.asset(
-                          "images/desticon.png",
+                          "images/locationgreen.png",
                           height: 16.0,
                           width: 16.0,
                         ),
@@ -124,8 +139,8 @@ class _SearchScreenState extends State<SearchScreen> {
                         Expanded(
                           child: Container(
                             decoration: BoxDecoration(
-                              color: Colors.grey[400],
-                              borderRadius: BorderRadius.circular(5.0),
+                              color: bordercolor,
+                              borderRadius: BorderRadius.circular(20.0),
                             ),
                             child: Padding(
                               padding: EdgeInsets.all(6.0),
@@ -135,9 +150,10 @@ class _SearchScreenState extends State<SearchScreen> {
                                 },
                                 controller: dropOfTextEditingController,
                                 decoration: InputDecoration(
-                                  hintText: "Where to ?",
-                                   hintStyle: TextStyle(color:textcolor),
-                                  fillColor: Colors.grey[400],
+                                  hintText:  AppLocalizations.of(context).whereto,
+                                  hintStyle: TextStyle(
+                                      color: textcolor, fontFamily: "segoe"),
+                                  fillColor: bordercolor,
                                   filled: true,
                                   border: InputBorder.none,
                                   isDense: true,
@@ -149,36 +165,92 @@ class _SearchScreenState extends State<SearchScreen> {
                           ),
                         ),
                       ],
-                    )
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          print(Provider.of<AppData>(context, listen: false)
+                              .dropOffLocation);
+                          setState(() {
+                            setonMap = true;
+                            isItDropOff = true;
+                          });
+
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => MainScreen(),
+                            ),
+                          );
+                        },
+                        child: Text( AppLocalizations.of(context).setdropoffonmap,))
                   ],
                 ),
               ),
             ),
             //SEARCH RES+++++++++++++++++++++++++
             SizedBox(
-              height: 10.0,
+              height: 5.0,
             ),
+
             (placePredictionsList.length > 0)
-                ? SingleChildScrollView(
-                  child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 0.0, horizontal: 0.0),
-                      child: ListView.separated(
-                        padding: EdgeInsets.all(0.0),
-                        itemBuilder: (context, index) {
-                          return PredictionTitle(
-                            placePredictions: placePredictionsList[index],
-                          );
-                        },
-                        separatorBuilder: (BuildContext context, int index) =>
-                            DividerWidget(),
-                        itemCount: placePredictionsList.length,
-                        shrinkWrap: true,
-                        physics: ClampingScrollPhysics(),
+                ? Expanded(
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 0.0, horizontal: 0.0),
+                        child: ListView.separated(
+                          padding: EdgeInsets.all(0.0),
+                          itemBuilder: (context, index) {
+                            return PredictionTitle(
+                              placePredictions: placePredictionsList[index],
+                            );
+                          },
+                          separatorBuilder: (BuildContext context, int index) =>
+                              DividerWidget(),
+                          itemCount: placePredictionsList.length,
+                          shrinkWrap: true,
+                          physics: ClampingScrollPhysics(),
+                        ),
                       ),
                     ),
-                )
-                : Container()
+                  )
+                : Padding(
+                    padding: const EdgeInsets.only(top: 100),
+                    child: Center(
+                      child: Container(
+                        height: 190,
+                        child: RichText(
+                            text: TextSpan(
+                                text: "S",
+                                style: TextStyle(
+                                    fontFamily: "segoebold",
+                                    fontSize: 30,
+                                    color: primary),
+                                children: [
+                              TextSpan(
+                                text: "aa",
+                                style: TextStyle(
+                                    fontFamily: "segoebold",
+                                    fontSize: 30,
+                                    color: textcolor),
+                              ),
+                              TextSpan(
+                                text: "S",
+                                style: TextStyle(
+                                    fontFamily: "segoebold",
+                                    fontSize: 30,
+                                    color: primary),
+                              ),
+                              TextSpan(
+                                text: "Taxi",
+                                style: TextStyle(
+                                    fontFamily: "segoebold",
+                                    fontSize: 30,
+                                    color: textcolor),
+                              ),
+                            ])),
+                      ),
+                    ),
+                  )
           ],
         ),
       ),
@@ -188,7 +260,8 @@ class _SearchScreenState extends State<SearchScreen> {
   void findPlace(String placeName) async {
     if (placeName.length > 1) {
       String autoCompleterUrl =
-          "https://api.geoapify.com/v1/geocode/autocomplete?text=$placeName&limit=5&apiKey=$keyOfMap";
+          //  "https://api.geoapify.com/v1/geocode/autocomplete?text=$placeName&limit=5&apiKey=$keyOfMap";
+          "https://api.geoapify.com/v1/geocode/autocomplete?text=$placeName&filter=circle:32.5,15.5,89999&apiKey=$keyOfMap";
 
       var res = await RequstAssistant.getRequest(autoCompleterUrl);
 
@@ -204,7 +277,8 @@ class _SearchScreenState extends State<SearchScreen> {
         setState(() {
           placePredictionsList = placeList;
         });
-        print(prediction);
+
+        // print(prediction);
       }
     }
   }
@@ -221,40 +295,47 @@ class PredictionTitle extends StatelessWidget {
         getPlaceAddressDetails(placePredictions.placeId, context);
       },
       child: Container(
-        decoration: BoxDecoration(color: bordercolor,
-        borderRadius: BorderRadius.circular(15)),
+        decoration: BoxDecoration(
+            color: bordercolor, borderRadius: BorderRadius.circular(15)),
         child: Column(
           children: [
             SizedBox(
               width: 10.0,
             ),
-            Row(
-              children: [
-                Icon(Icons.add_location,color: primary,),
-                SizedBox(
-                  width: 14.0,
-                ),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 10.0),
-                      Text(
-                        placePredictions.name.toString(),
-                        style: TextStyle(fontSize: 16,color: secondary),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      SizedBox(height: 2.0),
-                      Text(
-                        placePredictions.street.toString(),
-                        style: TextStyle(fontSize: 12, color: Colors.grey),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      SizedBox(height: 8.0),
-                    ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Row(
+                children: [
+                  FaIcon(
+                    FontAwesomeIcons.mapMarkerAlt,
+                    color: textcolor,
                   ),
-                )
-              ],
+                  SizedBox(
+                    width: 14.0,
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 10.0),
+                        Text(
+                          placePredictions.name.toString(),
+                          style: TextStyle(fontSize: 16, color: textcolor),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        SizedBox(height: 2.0),
+                        Text(
+                          placePredictions.street.toString(),
+                          style: TextStyle(
+                              fontSize: 12, color: textcolor.withOpacity(0.6)),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        SizedBox(height: 8.0),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
             SizedBox(
               width: 10.0,
@@ -283,6 +364,7 @@ class PredictionTitle extends StatelessWidget {
       return;
     }
     if (res != "failed") {
+      print(res.toString());
       Address address = Address();
       address.placeName = res["features"][0]["properties"]["name"];
       address.placrId = placeId;
@@ -291,10 +373,10 @@ class PredictionTitle extends StatelessWidget {
 
       Provider.of<AppData>(context, listen: false)
           .updateDropOffLocationAddress(address);
-      print("++++++++++++++++++++++++++++++++++++++++");
-      print(address.placeName);
-      print(address.latitude);
-      print(address.longitude);
+      // print("++++++++++++++++++++++++++++++++++++++++");
+      // print(address.placeName);
+      // print(address.latitude);
+      // print(address.longitude);
       Navigator.pop(context, "obtainDirection");
     }
   }

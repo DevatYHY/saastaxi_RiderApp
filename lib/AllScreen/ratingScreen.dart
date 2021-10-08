@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newmap/configMap.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:firebase_database/firebase_database.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class RatingScreen extends StatefulWidget {
   final String driverId;
 
@@ -36,7 +36,7 @@ class _RatingScreenState extends State<RatingScreen> {
                 height: 22.0,
               ),
               Text(
-                "Rate this Driver",
+                 AppLocalizations.of(context).ratedriver,
                 style: TextStyle(
                     fontSize: 20.0,
                     fontFamily: "Brand Bold",
@@ -124,7 +124,7 @@ class _RatingScreenState extends State<RatingScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text(
-                        "Submit",
+                        AppLocalizations.of(context).submit,
                         style: TextStyle(
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold,

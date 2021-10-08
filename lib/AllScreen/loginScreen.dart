@@ -6,131 +6,194 @@ import 'package:newmap/AllWidgets/progressDialog.dart';
 import 'package:newmap/configMap.dart';
 import './registrationScreen.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 import '../main.dart';
 import 'mainscreen.dart';
 
+// ignore: must_be_immutable
 class LoginScreen extends StatelessWidget {
   static const String idScreen = "login";
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
 
+  FocusNode myFocusNode = new FocusNode();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundcolor,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 2.0,
-              ),
-              Image(
-                image: AssetImage('images/logo.png'),
-                width: 300.0,
-                height: 300.0,
-                alignment: Alignment.center,
-              ),
-              SizedBox(
-                height: 1.0,
-              ),
-              Text(
-                "Login as Rider",
-                style: TextStyle(
-                  fontFamily: "Brand-Bold",
-                  fontSize: 24,
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("images/mainblurred.jpg"),
+                fit: BoxFit.cover)),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 100.0,
                 ),
-                textAlign: TextAlign.center,
-              ),
-              Padding(
-                padding: EdgeInsets.all(15.0),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 1.0,
-                    ),
-                    TextFormField(
-                      controller: emailTextEditingController,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        border:OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          ),
-                        filled: true,
-                        fillColor: bordercolor,
-                        labelText: "Email",
-                        labelStyle: TextStyle(fontSize: 14.0),
-                        hintStyle:
-                            TextStyle(color: Colors.grey, fontSize: 18.0),
+                Image(
+                  image: AssetImage('images/logo.png'),
+                  width: 100.0,
+                  height: 100.0,
+                  alignment: Alignment.center,
+                ),
+                SizedBox(
+                  height: 15.0,
+                ),
+                Text(
+                  "Saas Taxi",
+                  style: TextStyle(
+                      fontFamily: "segoebold", fontSize: 28, color: primary),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 24,
+                ),
+                // Text(
+                //   "Login",
+                //   style: TextStyle(
+                //     fontFamily: "segoebold",
+                //     fontSize: 24,
+                //     color: primary
+                //   ),
+                //   textAlign: TextAlign.center,
+                // ),
+                Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10.0,
                       ),
-                      style: TextStyle(fontSize: 14.0),
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    TextFormField(
-                      controller: passwordTextEditingController,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        border:OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                          ),
-                        filled: true,
-                        fillColor:bordercolor,
-                        labelText: "Password",
-                        labelStyle: TextStyle(fontSize: 14.0),
-                        hintStyle:
-                            TextStyle(color: Colors.grey, fontSize: 18.0),
-                      ),
-                      style: TextStyle(fontSize: 14.0),
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    SizedBox(height: 50.0,),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          primary: primary,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(24.0))),
-                      child: Container(
-                        height: 50.0,
-                        child: Center(
-                          child: Text(
-                            "Login",
-                            style: TextStyle(
-                              fontFamily: "Brand-Bold",
+                      TextFormField(
+                        controller: emailTextEditingController,
+                        keyboardType: TextInputType.emailAddress,
+                        cursorColor: primary,
+                        focusNode: myFocusNode,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25),
+                              borderSide: BorderSide(
+                                  color: primary, style: BorderStyle.solid)),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25),
+                              borderSide: BorderSide(color: primary)),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25),
+                              borderSide: BorderSide(color: primary)),
+                          labelText:   AppLocalizations.of(context).email,
+                          labelStyle: TextStyle(
+                              fontSize: 14.0,
+                              color: backgroundcolor,
+                              fontFamily: "segoe"),
+                          hintStyle: TextStyle(
+                              color: backgroundcolor,
                               fontSize: 18.0,
-                             
+                              fontFamily: "segoe"),
+                        ),
+                        style: TextStyle(
+                            fontSize: 14.0,
+                            color: backgroundcolor,
+                            fontFamily: "segoe"),
+                      ),
+                      SizedBox(
+                        height: 24.0,
+                      ),
+                      TextFormField(
+                        controller: passwordTextEditingController,
+                        obscureText: true,
+                        cursorColor: primary,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25),
+                              borderSide: BorderSide(
+                                  color: primary, style: BorderStyle.solid)),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25),
+                              borderSide: BorderSide(color: primary)),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(25),
+                              borderSide: BorderSide(color: primary)),
+                          labelStyle:
+                              TextStyle(fontSize: 14.0, color: backgroundcolor),
+                          labelText: AppLocalizations.of(context).password,
+                          hintStyle: TextStyle(
+                              color: backgroundcolor,
+                              fontSize: 18.0,
+                              fontFamily: "segoe"),
+                        ),
+                        style: TextStyle(fontSize: 14.0, fontFamily: "segoe",color: backgroundcolor,),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      SizedBox(
+                        height: 60.0,
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            primary: primary,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(24.0))),
+                        child: Container(
+                          height: 50.0,
+                          child: Center(
+                            child: Text(
+                            AppLocalizations.of(context).login,
+                              style: TextStyle(
+                                  fontFamily: "segoebold",
+                                  fontSize: 18.0,
+                                  color: textcolor),
                             ),
                           ),
                         ),
+                        onPressed: () {
+                          if (!emailTextEditingController.text.contains("@")) {
+                            displaytostMessage(
+                                "Email address is not Valid", context);
+                          } else if (passwordTextEditingController
+                              .text.isEmpty) {
+                            displaytostMessage("Enter Password", context);
+                          } else {
+                            loginAuthenticatUser(context);
+                          }
+                        },
                       ),
-                      onPressed: () {
-                        if (!emailTextEditingController.text.contains("@")) {
-                          displaytostMessage(
-                              "Email address is not Valid", context);
-                        } else if (passwordTextEditingController.text.isEmpty) {
-                          displaytostMessage("Enter Password", context);
-                        } else {
-                          loginAuthenticatUser(context);
-                        }
-                      },
-                    ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text( AppLocalizations.of(context).notaccount,
+                        style: TextStyle(
+                            color: backgroundcolor, fontFamily: "segoe")),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pushNamedAndRemoveUntil(context,
+                              RegisterationScreen.idScreen, (route) => false);
+                        },
+                        child: Text(
+                            AppLocalizations.of(context).registerhere,
+                          style: TextStyle(
+                              color: primary, fontFamily: "segoebold"),
+                        )),
                   ],
                 ),
-              ),
-              SizedBox(height: 50.0,),
-              TextButton(
-                  onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(context,
-                        RegisterationScreen.idScreen, (route) => false);
-                  },
-                  child: Text("Do not have an Account ?Register Here",
-                  style: TextStyle(color: textcolor),)),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -146,14 +209,15 @@ class LoginScreen extends StatelessWidget {
           return ProgressDialog(message: "Please wait");
         });
 
-    final User firebaseUser = (await _firebaseAuth
+    final User firebaseUser = (
+      await _firebaseAuth
             .signInWithEmailAndPassword(
                 email: emailTextEditingController.text,
                 password: passwordTextEditingController.text)
             .catchError((erMsg) {
       Navigator.pop(context);
       displaytostMessage(erMsg.noSuchMethod().toString(), context);
-    }))
+    }) )
         .user;
 
     if (firebaseUser != null) {

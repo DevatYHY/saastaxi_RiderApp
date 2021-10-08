@@ -5,13 +5,15 @@ class Users {
   String name;
   String email;
   String phone;
-  Users({this.id, this.email, this.name, this.phone});
+  String image;
+  Users({this.id, this.email, this.name, this.phone, this.image});
   Users.fromSnapshot(DataSnapshot dataSnapshot) {
     if (dataSnapshot != null) {
       id = dataSnapshot.key;
       email = dataSnapshot.value["email"];
       name = dataSnapshot.value["name"];
       phone = dataSnapshot.value["phone"];
+      image = dataSnapshot.value["photo"];
     } else {
       return;
     }
